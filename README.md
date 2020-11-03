@@ -7,6 +7,6 @@ So  we created a PHP app that allows  users  to add documents delete or modify t
 
 And deployed the app in docker (creating a custom dockerfile).
 
-and then hosted the project on  AWS
+and then hosting the project on  AWS
 
 used technologies:  PHP, javascript, AJAX, elasticsearch , docker , kubernetes , AWS.
