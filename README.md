@@ -1,6 +1,6 @@
 ﻿# search-engine
 Collaborators:
-          mohaned abid 
+          mohaned abid (https://github.com/mohaned-abid)
           lamjed gaidi (https://github.com/arnisto)
 
 Finding the need to look for specific academic documents we decided to develop    a search engine for our university sup'com  to make looking for  documents much easier.
