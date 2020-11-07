@@ -1,0 +1,46 @@
+version: "3.2"
+services:
+  php:
+    build: 
+      context: .
+    image: mohaned/search-engine:1.0.0
+    networks:
+      - frontend
+      - backend
+    environment:
+      - MYSQL_HOST=se-mysql-app
+      - MYSQL_USER=moeuser
+      - MYSQL_PASSWORD=moepass
+      - MYSQL_DB=moteur_de_recherche
+    volumes:
+      - ./www/:/var/www/html/
+    ports:
+      - "30001:80"
+    container_name: se-php-app
+  mysql:
+    image: mysql:5.7
+    networks:
+      - backend
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_USER=moeuser
+      - MYSQL_PASSWORD=moepass 
+      - MYSQL_DATABASE=moteur_de_recherche
+    container_name: se-mysql-app
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.7
+    depends_on:
+      - mysql
+    networks:
+      - backend
+    ports:
+      - "30002:80"
+    environment:
+      - PMA_HOST=se-mysql-app
+      - PMA_PORT= 3306
+    volumes:
+      - /sessions
+    container_name: se-phpmyadmin-app
+networks:
+  frontend:
+  backend:
